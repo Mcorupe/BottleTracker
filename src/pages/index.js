@@ -45,28 +45,36 @@ function IndexPage() {
         keywords={[`gatsby`, `tailwind`, `react`, `tailwindcss`, `home`]}
         title="Home"
       />
-      <form className="bg-blue-300" onSubmit={handleSubmit}>
-        <div className="flex items-center border-b">
+      <form className="bg-blue-400 flex rounded-lg p-10" onSubmit={handleSubmit}>
+
+        
           {/*}
         i hate that this isnt centered. 
         {*/}
-          <div className="inline-block relative w-60">
-            <label className="block font-bold md:text-right mb-1 md:mb-0 pr-4">
-              Name
+          <div className="flex">
+            <label className="block font-bold md:text-center mb-1 md:mb-0 pr-4">
+              Name:
             </label>
-            <input placeholder={"John Doe"} onChange={handleInputChange} />
-            <label className="block font-bold md:text-right mb-1 md:mb-0 pr-4">
+            <input className="rounded-full md:text-center" placeholder={"John Doe"} onChange={handleInputChange} />
+            </div>
+
+            <div className="flex">
+            <label className="block font-bold md:text-center md-1 md:mb-0 pr-4">
               Type:{" "}
             </label>
-            <select className="block appearance-none w-full bg white border border-grey-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline rounded">
+            <select className="block rounded-full appearance-none w-full text-center bg-white border border-grey-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline rounded">
               <option value=""></option>
               <option value="text">Milk</option>
               <option value="text">Formula</option>
             </select>
-            <label className="block font-bold md:text-right mb-1 md:mb-0 pr-4">
+            </div>
+
+
+            <div className="flex">
+            <label className="block font-bold md:text-center px-2">
               Amount (oz):{" "}
             </label>
-            <select className="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline rounded">
+            <select className="block rounded-full appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline rounded">
               <option value="0">0</option>
               <option value=".5">.5</option>
               <option value="1">1</option>
@@ -77,14 +85,18 @@ function IndexPage() {
               <option value="3.5">3.5</option>
               <option value="4">4</option>
             </select>
+            </div>
+
+            <div className="flex">
             <button
-              className="px-10 bg-green-500 rounded-full hover:bg-red-600 border-green-700"
+              className="rounded-full text-white bg-teal-700 px-10 p-3  hover:bg-teal-600 "
               type={"submit"}
             >
               Submit
             </button>
-          </div>
-        </div>
+            </div>
+
+        
       </form>
       <br />
       <br />
@@ -115,6 +127,11 @@ function IndexPage() {
           </tr>
         </tbody>
       </table>
+      
+      <div>
+      <button className="rounded-full p-2 px-3 mx-64 bg-teal-700 text-white hover:bg-teal-600 ">
+        Theme</button> 
+        </div>  
     </Layout>
   );
 }
