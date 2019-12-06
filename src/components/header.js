@@ -47,21 +47,21 @@ function Header() {
 
         <nav
           className={`${
-            isExpanded ? `block` : `hidden`
+            isExpanded ? "block" : "hidden"
           } md:block md:flex md:items-center w-full md:w-auto`}
         >
           {[
             {
-              route: `/`,
-              title: `Home`
+              route: "/",
+              title: "Home"
             },
             {
-              route: `/about`,
-              title: `About`
+              route: "/about",
+              title: "About"
             },
             {
-              route: `/contact`,
-              title: `Contact`
+              route: "/contact",
+              title: "Contact"
             }
           ].map(link => (
             <Link
