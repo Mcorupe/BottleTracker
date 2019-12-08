@@ -1,4 +1,4 @@
-import { useReact, useState } from "react";
+import { useState } from "react";
 
 export const useSignUpForm = callback => {
   const [inputs, setInputs] = useState({});

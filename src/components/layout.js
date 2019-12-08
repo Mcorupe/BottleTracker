@@ -13,11 +13,8 @@ function Layout({ children }) {
       <footer className="bg-teal-700">
         <nav className="flex justify-between max-w-4xl mx-auto p-4 md:p-8 text-sm">
           <p className="text-white">
-            Created by{` `}
-            <a
-              className="font-bold no-underline text-white"
-              title="Hello"
-            >
+            Created by{" "}
+            <a className="font-bold no-underline text-white" title="Hello">
               Kevin and Mark
             </a>
           </p>
