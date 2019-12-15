@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import { withFirebase } from "../components/withFirebase";
 
-export default function Form(props) {
+function FormPage(props) {
   const sendData = feeding => {
     props.firebase
       .firestore()
@@ -96,3 +97,4 @@ export default function Form(props) {
     </form>
   );
 }
+export default withFirebase(FormPage);

@@ -1,4 +1,5 @@
 import React from "react";
+import { withFirebase } from "../components/withFirebase";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
@@ -22,4 +23,4 @@ function NotFoundPage() {
   );
 }
 
-export default NotFoundPage;
+export default withFirebase(NotFoundPage);

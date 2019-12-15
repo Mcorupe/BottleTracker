@@ -1,20 +1,19 @@
-import React, { useState } from "react";
-import { FirebaseContext } from "gatsby-plugin-firebase";
-import moment from 'moment';
+import React, { useState, useEffect } from "react";
+import { withFirebase } from "../components/withFirebase";
+import moment from "moment";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Form from "../components/Form";
 // import { useSignUpForm } from "../components/formHooks";
 
-function FormPage() {
-  const firebase = React.useContext(FirebaseContext);
+function FormPage(props) {
   const [loading, setLoading] = useState(true);
   const [feedings, setFeedings] = useState([]);
 
   const grabData = () => {
     //for now, get all collections
-    firebase
+    props.firebase && props.firebase
       .firestore()
       .collection("feeding")
       .get()
@@ -36,19 +35,18 @@ function FormPage() {
         console.log("Error getting documents", err);
       });
   };
-  
-  firebase && grabData();
+
+  useEffect(() => grabData(), []);
 
   //signIN
   //signOUT
-  console.log(feedings);
   return (
     <Layout>
       <SEO
         keywords={["gatsby", "tailwind", "react", "tailwindcss", "home"]}
         title="Home"
       />
-      <Form firebase={firebase} />
+      <Form firebase={props.firebase} />
       <br />
       <br />
       {!loading ? (
@@ -71,7 +69,9 @@ function FormPage() {
                   <td className="border px-4 py-2">{feeding.name}</td>
                   <td className="border px-4 py-2">{feeding.type}</td>
                   <td className="border px-4 py-2">{feeding.amount}</td>
-                  <td className="border px-6 py-2">{moment(feeding.time).format("LLL")}</td>
+                  <td className="border px-6 py-2">
+                    {moment(feeding.time).format("LLL")}
+                  </td>
                 </tr>
               );
             })}
@@ -85,17 +85,16 @@ function FormPage() {
       <div>
         <button
           className="rounded-full p-2 px-3 mx-64 bg-teal-700 text-white hover:bg-teal-600 "
-          
           type="button"
         >
           Theme
         </button>
         <br />
         <br />
-        <div className="px-3">YO THIS BUTTON WONT GO WHERE I WANT IT >=(   </div>
+        <div className="px-3">YO THIS BUTTON WONT GO WHERE I WANT IT >=( </div>
       </div>
     </Layout>
   );
 }
 
-export default FormPage;
+export default withFirebase(FormPage);
