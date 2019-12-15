@@ -44,7 +44,7 @@ export default function Form(props) {
         <input
           className="rounded-full md:text-center border border-grey-400 hover:border-gray-500"
           onChange={e => setName(e.target.value)}
-          placeholder={"John Doe"}
+          placeholder={"Baby"}
           value={name}
         />
       </div>

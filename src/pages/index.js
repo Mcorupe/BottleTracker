@@ -4,101 +4,110 @@ import { FirebaseContext } from "gatsby-plugin-firebase";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Form from "../components/Form";
+import { firestore } from "firebase";
 // import { useSignUpForm } from "../components/formHooks";
 
 function IndexPage() {
   const firebase = React.useContext(FirebaseContext);
   const [loading, setLoading] = useState(true);
-  const [feedings, setFeedings] = useState([]);
+  const [userName, setUserName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [authError, setAuthError] = useState("");
 
-  // const setUser = () => {
-  //   firebase
-  //     .firestore()
-  //     .ref("/user")
-  //     .set("Alex")
-  //     .auth();
-  // };
-
-  const grabData = () => {
-    //for now, get all collections
+  //{user: username, password: password}
+  const setUser = signUpData =>
     firebase
-      .firestore()
-      .collection("feeding")
-      .get()
-      .then(snapshot => {
-        if (snapshot.empty) {
-          console.log("No matching documents.");
-          return;
-        }
-        // console.log(snapshot)
-        // snapshot.forEach(doc => {
-        //   console.log(doc.id, '=>', doc.data());
-        // });
-        const allFeedings = snapshot.docs.map(doc => doc.data());
-        console.log(allFeedings);
-        setLoading(false);
-        setFeedings(allFeedings);
+      .auth()
+      .createUserWithEmailAndPassword(signUpData.email, signUpData.password)
+      .then(resp => {
+        return firestore
+          .collection("users")
+          .doc(resp.user.uid)
+          .set({
+            firstName: signUpData.firstName,
+            lastName: signUpData.lastName,
+            userName: signUpData.userName,
+            initials: signUpData.firstName[0] + signUpData.lastName[0],
+            createdAt: new Date()
+          });
       })
-      .catch(err => {
-        console.log("Error getting documents", err);
-      });
-  };
+      .catch(e => console.log(e));
+  const signIn = () => setUser({ email, password, userName });
 
   //signIN
   //signOUT
-  console.log(feedings);
   return (
     <Layout>
       <SEO
         keywords={["gatsby", "tailwind", "react", "tailwindcss", "home"]}
         title="Home"
       />
-      <Form firebase={firebase} />
-      <br />
-      <br />
-      {!loading ? (
-        <table className="table-fixed">
-          <thead>
-            <tr>
-              <th className="w-1/2 px-4 py-2">Feeding</th>
-              <th className="w-1/4 px-4 py-2">Type</th>
-              <th className="w-1/4 px-4 py-2">Amount</th>
-              <th className="w-1/4 px-4 py-2">Time</th>
-            </tr>
-          </thead>
-          <tbody>
-            {feedings.map((feeding, i) => {
-              return (
-                <tr
-                  className="bg-gray-100"
-                  key={`${JSON.stringify(feeding)}-${i}`}
-                >
-                  <td className="border px-4 py-2">{feeding.name}</td>
-                  <td className="border px-4 py-2">{feeding.type}</td>
-                  <td className="border px-4 py-2">{feeding.amount}</td>
-                  {/* will need to format createdAt since it's returned as an object */}
-                  <td className="border px-4 py-2">time</td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
-      ) : (
-        "Fetching data(Not really... lol, click on theme for now...)"
-      )}
-      <br />
-      <br />
-      <div>
-        <button
-          className="rounded-full p-2 px-3 mx-64 bg-teal-700 text-white hover:bg-teal-600 "
-          onClick={() => grabData()}
-          type="button"
-        >
-          Theme
-        </button>
-        <br />
-        <br />
-        <div className="px-3">YO THIS BUTTON WONT GO WHERE I WANT IT >=(</div>
+
+      <div class="w-full max-w-xs m-64">
+        <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+          <div class="mb-4">
+            <label
+              class="block text-gray-700 text-sm font-bold mb-2"
+              for="username"
+            >
+              Username
+            </label>
+            <input
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="username"
+              type="text"
+              onChange={e => setUserName(e.target.value)}
+              placeholder="Username"
+              value={userName}
+            />
+          </div>
+          <div class="mb-4">
+            <label
+              class="block text-gray-700 text-sm font-bold mb-2"
+              for="email"
+            >
+              Email
+            </label>
+            <input
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="email"
+              type="email"
+              onChange={e => setEmail(e.target.value)}
+              placeholder="Email"
+              value={email}
+            />
+          </div>
+          <div class="mb-6">
+            <label
+              class="block text-gray-700 text-sm font-bold mb-2"
+              for="password"
+            >
+              Password
+            </label>
+            <input
+              class="shadow appearance-none border border-grey-700 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+              id="password"
+              type="password"
+              value={password}
+              onChange={e => setPassword(e.target.value)}
+              placeholder="Password"
+            />
+            <div className="red-text center">
+              {authError ? <p>{authError}</p> : null}{" "}
+            </div>
+          </div>
+
+          <div class="flex items-center px-12">
+            <button
+              class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              type="button"
+              onClick={signIn}
+            >
+              SignUp
+            </button>
+          </div>
+        </form>
       </div>
     </Layout>
   );

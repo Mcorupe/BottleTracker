@@ -2,10 +2,13 @@
 signIn signOut pages need to be made
 "          " pages need to be linked with firestore. yay
 
+- use something for the grabTable to limit amount showed.
+- filter() pagination the table
+
 
 
 --- those tests we were supposed to write ----
-EVERYTHING
+EVERYTHING :(
 
 
 
