@@ -4,9 +4,9 @@
 ^**^^**^**^*^^*^**^*^*^**^*^*^*^**^^**^^**^**^*^^*^**^*^*^**^*^*^*^**^^**^^**^**^*^^*^**^*^*^**^*^*^*^**^
 ^**^^**^**^*^^*^**^*^*^**^*^*^*^**^^**^^**^**^*^^*^**^*^*^**^*^*^*^**^^**^^**^**^*^^*^**^*^*^**^*^*^*^**^
 
---- BRIDGES THAT ARE BURNING SOON BITCHES --
 [X] signIn signUP pages need to be made
 [X]  "          " pages need to be linked with firestore. yay
+[] Route guarding
 
 
 
@@ -25,7 +25,12 @@ conditionally render these
 --- those tests we were supposed to write ----
 [] EVERYTHING :(
 
-
+---Styling---
+[] signUP box positioning
+[] theme
+[] add some svgs
+[] center <btn> SignUP </btn>
+[] center <btn> Login </btn>
 
 
 
