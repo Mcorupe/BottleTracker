@@ -9,7 +9,7 @@ import { firestore } from "firebase";
 // import { useSignUpForm } from "../components/formHooks";
 
 function SignUpPage(props) {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [userName, setUserName] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -44,20 +44,15 @@ function SignUpPage(props) {
     setUser({ email, password, userName, firstName, lastName });
     return navigate("/login");
   };
-
-  //signIN
-  //signOUT
-  //console.log(firebase && firebase.firestore().collection())
   return (
     <Layout>
       <SEO
         keywords={["gatsby", "tailwind", "react", "tailwindcss", "SignUp"]}
         title="SignUp"
       />
-
-      <div class="w-full max-w-xs m-64">
-        <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-          <div class="mb-4">
+      <div className="flex flex-1 justify-center">
+        <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+          <div className="mb-4">
             <label
               className="block text-gray-700 text-sm font-bold mb-2"
               htmlFor="username"
@@ -67,13 +62,13 @@ function SignUpPage(props) {
             <input
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               id="username"
-              type="text"
               onChange={e => setUserName(e.target.value)}
               placeholder="Username"
+              type="text"
               value={userName}
             />
           </div>
-          <div class="mb-4">
+          <div className="mb-4">
             <label
               className="block text-gray-700 text-sm font-bold mb-2"
               htmlFor="firstName"
@@ -83,13 +78,13 @@ function SignUpPage(props) {
             <input
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               id="firstName"
-              type="text"
               onChange={e => setFirstName(e.target.value)}
               placeholder="First Name"
+              type="text"
               value={firstName}
             />
           </div>
-          <div class="mb-4">
+          <div className="mb-4">
             <label
               className="block text-gray-700 text-sm font-bold mb-2"
               htmlFor="lastName"
@@ -99,14 +94,14 @@ function SignUpPage(props) {
             <input
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               id="lastName"
-              type="text"
               onChange={e => setLastName(e.target.value)}
               placeholder="Last Name"
+              type="text"
               value={lastName}
             />
           </div>
 
-          <div class="mb-4">
+          <div className="mb-4">
             <label
               className="block text-gray-700 text-sm font-bold mb-2"
               htmlFor="email"
@@ -116,13 +111,13 @@ function SignUpPage(props) {
             <input
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               id="email"
-              type="email"
               onChange={e => setEmail(e.target.value)}
               placeholder="Email"
+              type="email"
               value={email}
             />
           </div>
-          <div class="mb-6">
+          <div className="mb-6">
             <label
               className="block text-gray-700 text-sm font-bold mb-2"
               htmlFor="password"
@@ -130,25 +125,31 @@ function SignUpPage(props) {
               Password
             </label>
             <input
-              class="shadow appearance-none border border-grey-700 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+              className="shadow appearance-none border border-grey-700 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
               id="password"
-              type="password"
-              value={password}
               onChange={e => setPassword(e.target.value)}
               placeholder="Password"
+              type="password"
+              value={password}
             />
             <div className="text-red-600 center">
               {authError ? <p>{authError.message}</p> : null}{" "}
             </div>
           </div>
-
-          <div className="flex items-center px-12 mx-6">
+          <div className="flex justify-between">
             <button
               className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-              type="button"
               onClick={signIn}
+              type="button"
             >
-              SignUp
+              Sign Up
+            </button>
+            <button
+              className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              onClick={() => navigate("/login")}
+              type="button"
+            >
+              Login
             </button>
           </div>
         </form>
