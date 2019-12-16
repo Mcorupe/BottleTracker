@@ -1,7 +1,7 @@
 #  **BottleTracker** 
 
 ## Project Description
-BottleTracker is for anyone that needs to track feedings of infant humans or animals.
+BottleTracker :baby_bottle: is for anyone that needs to track feedings of infant humans :baby: or animals :smiley_cat:.
 Users may signup and login to their account, select which baby they are feeding, select what type of food (formula or milk), and what amount (ounces).
 All data is tracked in Firebase and displayed and filtered for the user. This was inspired by parents alternating waking up in the middle of the night to feed newborns, to help them track feedings.
 

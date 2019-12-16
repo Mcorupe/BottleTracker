@@ -52,16 +52,16 @@ function Header() {
         >
           {[
             {
-              route: "/",
-              title: "Home"
+              route: "/form",
+              title: "Form"
             },
             {
-              route: "/about",
-              title: "About"
+              route: "/login",
+              title: "Login"
             },
             {
-              route: "/contact",
-              title: "Contact"
+              route: "/signup",
+              title: "Signup"
             }
           ].map(link => (
             <Link

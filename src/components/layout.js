@@ -26,6 +26,7 @@ function Layout({ children }) {
               <a
                 className="font-bold no-underline text-white"
                 href="https://github.com/Mcorupe/BottleTracker"
+                title="Our repo for this project"
               >
                 GitHub
               </a>
