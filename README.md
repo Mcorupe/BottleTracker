@@ -1,4 +1,4 @@
-#  **BottleTracker 
+#  **BottleTracker** 
 
 ## Project Description
 BottleTracker is for anyone that needs to track feedings of infant humans or animals.
