@@ -10,7 +10,7 @@ All data is tracked in Firebase and displayed and filtered for the user. This wa
 * Mark Corupe
 
 
-## Technnologies used
+## Technologies Used
 * React
 * Gatsby
 * Firebase
