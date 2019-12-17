@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { FirebaseContext } from "gatsby-plugin-firebase";
 
 export const withFirebase = Component => props => (

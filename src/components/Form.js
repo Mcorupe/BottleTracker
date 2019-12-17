@@ -34,28 +34,25 @@ function FormPage(props) {
     setAmount("");
   };
   return (
-    <form className="bg-blue-400 flex rounded-lg p-10" onSubmit={submitForm}>
-      {/*}
-      i hate that this isnt centered. 
-      {*/}
-      <div className="flex">
-        <label className="block font-bold md:text-center mb-1 md:mb-0 pr-4">
-          Name:
-        </label>
+    <form
+      className="flex flex-wrap content-center md:flex-no-wrap bg-blue-400 rounded-lg p-8 mx-auto"
+      onSubmit={submitForm}
+    >
+      <div className="flex flex-row items-center w-full p-4 sm:px-2">
+        <label className="font-bold mb-1 md:mb-0 pr-2">Name:</label>
         <input
-          className="rounded-full md:text-center border border-grey-400 hover:border-gray-500"
+          className="rounded-full w-full md:text-center border border-grey-400 hover:border-gray-500"
           onChange={e => setName(e.target.value)}
-          placeholder={"Baby"}
+          placeholder={" Baby"}
           value={name}
         />
       </div>
-
-      <div className="flex">
-        <label className="block font-bold md:text-center md-1 md:mb-0 pr-4">
+      <div className="flex flex-row items-center w-full p-4 sm:px-2">
+        <label className="font-bold md:text-center md-1 md:mb-0 pr-4">
           Type:{" "}
         </label>
         <select
-          className="block rounded-full appearance-none w-full text-center bg-white border border-grey-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline rounded"
+          className="rounded-full appearance-none w-full text-center bg-white border border-grey-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline rounded"
           onChange={e => setType(e.target.value)}
           value={type}
         >
@@ -64,13 +61,10 @@ function FormPage(props) {
           <option value="formula">Formula</option>
         </select>
       </div>
-
-      <div className="flex">
-        <label className="block font-bold md:text-center px-2">
-          Amount (oz):{" "}
-        </label>
+      <div className="flex flex-row items-center w-full p-4 sm:px-2">
+        <label className="font-bold md:text-center px-2">Amount (oz): </label>
         <select
-          className="block rounded-full appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline rounded"
+          className="rounded-full appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline rounded"
           onChange={e => setAmount(e.target.value)}
           value={amount}
         >
@@ -85,8 +79,7 @@ function FormPage(props) {
           <option value="4">4</option>
         </select>
       </div>
-
-      <div className="flex">
+      <div className="flex flex-row items-center w-full mx-auto justify-center">
         <button
           className="rounded-full text-white bg-teal-700 px-10 mx-2 p-3 hover:bg-teal-600 "
           type={"submit"}
