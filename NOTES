@@ -4,11 +4,12 @@
 ^**^^**^**^*^^*^**^*^*^**^*^*^*^**^^**^^**^**^*^^*^**^*^*^**^*^*^*^**^^**^^**^**^*^^*^**^*^*^**^*^*^*^**^
 ^**^^**^**^*^^*^**^*^*^**^*^*^*^**^^**^^**^**^*^^*^**^*^*^**^*^*^*^**^^**^^**^**^*^^*^**^*^*^**^*^*^*^**^
 
-[X] signIn signUP pages need to be made
-[X]  "          " pages need to be linked with firestore. yay
+[X] SignIn signUP pages need to be made
+[X] SignIN and signUP pages need to be linked with firestore. yay
 [] Route guarding
 [] Forgot password
-[] reset password
+[] Reset password
+[] Firebase Security Rules
 
 
 
