@@ -10,7 +10,7 @@ import "../css/style.css";
 // import { useSignUpForm } from "../components/formHooks";
 
 
-const darkMode = useDarkMode(false);
+const darkMode = useDarkMode(true);
 
 const handleTheme = theme => theme === "dark" ? darkMode.enable() : darkMode.disable();
 
@@ -93,7 +93,7 @@ function FormPage(props) {
           </div>
         )}
         <br />
-        <div className="spinner">SPINNER</div>
+        <div className="spinner">SPINNER Y U NO LOAD</div>
         <br />
         <div className={"flex flex-1 justify-center mx-auto"}>
           <button

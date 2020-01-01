@@ -4,36 +4,39 @@
 ^**^^**^**^*^^*^**^*^*^**^*^*^*^**^^**^^**^**^*^^*^**^*^*^**^*^*^*^**^^**^^**^**^*^^*^**^*^*^**^*^*^*^**^
 ^**^^**^**^*^^*^**^*^*^**^*^*^*^**^^**^^**^**^*^^*^**^*^*^**^*^*^*^**^^**^^**^**^*^^*^**^*^*^**^*^*^*^**^
 
+----- MAIN FUNCTIONAL STUFF ------------
 [X] SignIn signUP pages need to be made
 [X] SignIN and signUP pages need to be linked with firestore. yay
 [] Route guarding
 [] Forgot password
 [] Reset password
-[] Firebase Security Rules
+[] Firebase Security Rules --- DONE BUT NEEDS TESTING CUZ I BROKE STUFF. HA ----
+[] Talk about re-writing file names. we have form.js/Form.js idk i might just be slow.
 
 
-
----filtering---
+---FILTERING---
 [] use something for the grabTable to limit amount showed.
 [] filter() pagination the table
 
 
----Header---
+---HEADER---
 conditionally render these
 [] signedIN links
 [] signedOUT links
 
-
-
---- those tests we were supposed to write ----
-[] EVERYTHING :(
-
----Styling---
+---STYLING---
 [] signUP box positioning
-[] theme
+[] theme dark/light
 [] add some svgs
 [] center <btn> SignUP </btn>
 [] center <btn> Login </btn>
+
+--- TESTS ----
+[] signUP
+[] SignIN
+[] sightout
+[] rendering?
+[] everything else
 
 
 
