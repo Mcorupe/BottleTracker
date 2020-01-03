@@ -1,19 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { withFirebase } from "../components/withFirebase";
 import moment from "moment";
-import useDarkMode from "use-dark-mode";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Form from "../components/Form";
 import "../css/style.css";
 // import { useSignUpForm } from "../components/formHooks";
-
-
-const darkMode = useDarkMode(true);
-
-const handleTheme = theme => theme === "dark" ? darkMode.enable() : darkMode.disable();
-
 
 function FormPage(props) {
   const [loading, setLoading] = useState(true);
@@ -95,15 +88,7 @@ function FormPage(props) {
         <br />
         <div className="spinner">SPINNER Y U NO LOAD</div>
         <br />
-        <div className={"flex flex-1 justify-center mx-auto"}>
-          <button
-            className="rounded-full p-2 px-3 bg-teal-700 text-white hover:bg-teal-600 "
-            type="button"
-            onClick={handleTheme}
-          >
-            Theme
-          </button>
-        </div>
+        <div className={"flex flex-1 justify-center mx-auto"}></div>
       </div>
     </Layout>
   );

@@ -26,7 +26,7 @@ conditionally render these
 
 ---STYLING---
 [] signUP box positioning
-[] theme dark/light
+[*] theme dark/light (did i maybe do it almost?)
 [] add some svgs
 [] center <btn> SignUP </btn>
 [] center <btn> Login </btn>

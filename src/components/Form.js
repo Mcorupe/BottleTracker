@@ -54,6 +54,7 @@ function FormPage(props) {
         <select
           className="rounded-full appearance-none w-full text-center bg-white border border-grey-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline rounded"
           onChange={e => setType(e.target.value)}
+          placeholder={"Food"}
           value={type}
         >
           <option value="" />
@@ -68,6 +69,7 @@ function FormPage(props) {
           onChange={e => setAmount(e.target.value)}
           value={amount}
         >
+          <option value=""></option>
           <option value="0">0</option>
           <option value=".5">.5</option>
           <option value="1">1</option>
