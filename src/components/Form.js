@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { withFirebase } from "../components/withFirebase";
 
-function FormPage(props) {
-  const sendData = feeding => {
+export function FormPage(props) {
+  const sendData = feeding => {props.firebase && 
     props.firebase
       .firestore()
       .collection("feeding")
       .add({
         ...feeding,
+        userId: props.firebase.auth().currentUser.uid,
         //no user is logged in currently, will have to add this later
         // authorFirstName: firstName,
         // authorLastName: lastName,

@@ -40,9 +40,10 @@ conditionally render these
 
 
 
-
-
-
+----- Problems ----------
+not receiving userObject until its too late
+not sending the correct data to fetch the table
+cannot submit the form
 
 
 

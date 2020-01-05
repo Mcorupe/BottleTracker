@@ -17,7 +17,10 @@ const loginPage = props => {
     props.firebase
       .auth()
       .signInWithEmailAndPassword(email, password)
-      .then(() => navigate("/form"))
+      .then(() => {
+        console.log("USER HAS LOGGED INT");
+        return navigate("/form");
+      })
       .catch(err => setAuthError(err.message));
   };
   return (

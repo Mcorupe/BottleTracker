@@ -11,13 +11,16 @@ import "../css/style.css";
 function FormPage(props) {
   const [loading, setLoading] = useState(true);
   const [feedings, setFeedings] = useState([]);
+  const [userUid, setUserUid] = useState("");
 
   const grabData = () => {
+    console.log('FETCHING DATA')
     //for now, get all collections
     props.firebase &&
       props.firebase
         .firestore()
         .collection("feeding")
+        .where("uid", "==", `${userUid.uid}`)
         .get()
         .then(snapshot => {
           if (snapshot.empty) {
@@ -38,7 +41,42 @@ function FormPage(props) {
         });
   };
 
-  useEffect(() => grabData(), [grabData]);
+  function setUser() {
+    props.firebase &&
+      props.firebase.auth().onAuthStateChanged(function(user) {
+        console.log(user);
+        if (user) {
+          setUserUid(user);
+        } else {
+          console.log("No user");
+        }
+      });
+  }
+  useEffect(() => {
+    console.log('setting user data')
+    let userTimeOut = setTimeout(() => setUser(), 2000);
+    // this will clear Timeout when component unmont like in willComponentUnmount
+    return () => {
+      clearTimeout(userTimeOut);
+    };
+    //useEffect will run only one time
+    //if you pass a value to array, like this [data] than clearTimeout will run every time this value changes (useEffect re-run)
+  }, [userUid]);
+
+  useEffect(() => {
+    let grabDataTimeout = setTimeout(() => grabData(), 1000);
+
+    // this will clear Timeout when component unmont like in willComponentUnmount
+    return () => {
+      clearTimeout(grabDataTimeout);
+    };
+
+    //useEffect will run only one time
+    //if you pass a value to array, like this [data] than clearTimeout will run every time this value changes (useEffect re-run)
+  }, [grabData]);
+
+  console.log(props.firebase);
+  console.log(userUid);
 
   //signIN
   //signOUT
@@ -82,12 +120,11 @@ function FormPage(props) {
           </table>
         ) : (
           <div className="container">
-            <div className="spinner">SPINNER</div>
+            <div className="spinner"></div>
+            <br />
           </div>
         )}
-        <br />
-        <div className="spinner">SPINNER Y U NO LOAD</div>
-        <br />
+
         <div className={"flex flex-1 justify-center mx-auto"}></div>
       </div>
     </Layout>
