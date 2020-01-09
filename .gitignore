@@ -9,6 +9,9 @@ yarn.lock
 # Build directory
 /public
 
+# Test coverage
+/coverage
+
 # macOS
 .DS_Store
 

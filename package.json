@@ -5,7 +5,7 @@
   "author": "Taylor Bryant <taylor@bryant.io>",
   "dependencies": {
     "firebase": "7.5.0",
-    "gatsby": "2.18.3",
+    "gatsby": "^2.18.18",
     "gatsby-plugin-firebase": "^0.1.7",
     "gatsby-plugin-manifest": "2.2.30",
     "gatsby-plugin-offline": "3.0.23",
@@ -39,9 +39,13 @@
     "fix": "npm run fix:lint && npm run fix:prettier",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "test": "jest"
+    "test": "jest --config=jest.config.js",
+    "test:coverage": "jest --config=jest.config.js --collectCoverage"
   },
   "devDependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.7.4",
+    "@babel/plugin-transform-regenerator": "^7.7.5",
+    "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.4.0",
     "@typescript-eslint/eslint-plugin": "2.9.0",
     "@typescript-eslint/parser": "2.9.0",
