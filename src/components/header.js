@@ -30,7 +30,6 @@ function Header() {
             {site.siteMetadata.title}
           </span>
         </Link>
-
         <button
           className="block md:hidden border border-white flex items-center px-3 py-2 rounded text-white"
           onClick={() => toggleExpansion(!isExpanded)}
@@ -44,7 +43,6 @@ function Header() {
             <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
           </svg>
         </button>
-
         <nav
           className={`${
             isExpanded ? "block" : "hidden"

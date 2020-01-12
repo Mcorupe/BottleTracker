@@ -36,7 +36,12 @@ conditionally render these
 [] SignIN
 [] sightout
 [] rendering?
-[] everything else
+[] form
+  [] input
+  [] type
+  [] amount
+  [] submit
+[] table
 
 
 
@@ -48,13 +53,42 @@ cannot submit the form
 
 
 
+--didnt work---
+//header.test.js
+
+import React from "react";
+import renderer from "react-test-renderer";
+
+import  Header  from "../../components/header.js";
+
+describe("Header", () => {
+  it("renders correctly", () => {
+    const tree = renderer.create(<Header />).toJSON();
+
+    expect(tree).toMatchSnapshot();
+  });
+});
 
 
 
+//Form.test.js
+made a 2nd one trying to test the data coming in. didnt work :(
+ test("renders feeding data", async () => {
+    const testFeeding = {
+      name: "tester",
+      type: "milk",
+      amount: "0"
+    };
 
-
-
-
+    jest.spyOn(global, "fetch").mockImplementation(() =>
+      Promise.resolve({
+        json: () => Promise.resolve(testFeeding)
+      })
+    );
+    await act(async () => {
+      render(<form/>);
+    },
+  })
 
 
 

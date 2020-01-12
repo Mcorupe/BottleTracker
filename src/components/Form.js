@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { withFirebase } from "../components/withFirebase";
 
-export function FormPage(props) {
+export function Form(props) {
   const sendData = feeding => {props.firebase && 
     props.firebase
       .firestore()
@@ -38,6 +38,7 @@ export function FormPage(props) {
     <form
       className="flex flex-wrap content-center md:flex-no-wrap bg-blue-400 rounded-lg p-8 mx-auto"
       onSubmit={submitForm}
+      data-testid='form'
     >
       <div className="flex flex-row items-center w-full p-4 sm:px-2">
         <label className="font-bold mb-1 md:mb-0 pr-2">Name:</label>
@@ -57,6 +58,7 @@ export function FormPage(props) {
           onChange={e => setType(e.target.value)}
           placeholder={"Food"}
           value={type}
+          data-testid="selector-type"
         >
           <option value="" />
           <option value="milk">Milk</option>
@@ -69,6 +71,8 @@ export function FormPage(props) {
           className="rounded-full appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline rounded"
           onChange={e => setAmount(e.target.value)}
           value={amount}
+          data-testid="selector-amount"
+
         >
           <option value=""></option>
           <option value="0">0</option>
@@ -93,4 +97,4 @@ export function FormPage(props) {
     </form>
   );
 }
-export default withFirebase(FormPage);
+export default withFirebase(Form);
