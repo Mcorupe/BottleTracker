@@ -90,6 +90,7 @@ export function Form(props) {
         <button
           className="rounded-full text-white bg-teal-700 px-10 mx-2 p-3 hover:bg-teal-600 "
           type={"submit"}
+          data-testid="submit"
         >
           Submit
         </button>

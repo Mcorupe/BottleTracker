@@ -15,16 +15,17 @@ describe("Form.js", () => {
     cleanup();
   });
 
-  test("renders the form",  () => {
+  test("renders the form", () => {
     expect(form.container).toBeInTheDocument();
   });
-  test("input test",  () => {
+  test("input test", () => {
     const testFeedings = form.container.querySelector("input");
     expect(testFeedings.value).toEqual("");
     fireEvent.change(testFeedings, { target: { value: "value" } });
     expect(testFeedings.value).toEqual("value");
   });
-  test("select feeding Type",  () => {  //you liar
+  test("select feeding Type", () => {
+    //you liar
     const testFeedings = form.getByTestId("selector-type");
     expect(testFeedings.value).toEqual("");
     for (let i = 0; i > testFeedings.length; i++) {
@@ -34,7 +35,8 @@ describe("Form.js", () => {
       expect(testFeedings.value).toEqual(testFeedings.options[i].value);
     }
   });
-  test("select feeding Amount", () => { //Liiiiiiiies
+  test("select feeding Amount", () => {
+    //Liiiiiiiies
     const testFeedings = form.getByTestId("selector-amount");
     expect(testFeedings.value).toEqual("");
     for (let i = 0; i > testFeedings.length; i++) {
@@ -44,9 +46,13 @@ describe("Form.js", () => {
       expect(testFeedings.value).toEqual(testFeedings.options[i].value);
     }
   });
+  test("It Submits", () => {
+    const onSubmit = jest.fn();
+    const { getByTestId } = render(<Form onSubmit={SubmitForm} />);
+    fireEvent.submit(getByTestId("form"));
+    expect(onSubmit).toHaveBeenCalled();
+  });
 });
-
-
 
 /*
 
@@ -63,6 +69,14 @@ expect(window.alert).toHaveBeenCalledWith(
     'No selected lines are eligible for cancellation'
 );
 window.alert = jsdomAlert; // restore the jsdom alert
+------------------------
+const spy = jest.spyOn(obj, "methodName", "set"); //spyOn( obj, 'methodName', 'get/set'*optional*)
+    const isSubmited = obj.methodName;
+
+    expect(spy).toHaveBeenCalled();
+    expect(isSubmitted).toBe(true);
+  });
+-------------------
 
 
 */
