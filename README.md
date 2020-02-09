@@ -13,8 +13,6 @@ All data is tracked in Firebase and displayed and filtered for the user. This wa
 
 ### Technologies Used
 
-- React-Testing-Library
-
 | Library                               | Docs                                                     | Purpose                                                                                          |
 | ------------------------------------- | -------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
 | React                                 | https://reactjs.org/                                     | Javascript framework for single-page application                                                 |
