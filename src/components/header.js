@@ -65,17 +65,20 @@ const Header = props => {
             { route: "/signup", title: "Signup" },
             { route: "/logout", title: "Log Out" }
           ].map(link => {
-            //if the user is logged in
-            if (localStorage.getItem("user")) {
-              //dont show the login and signup route
-              if (link.route === "/login" || link.route === "/signup") {
-                return null;
-              }
-              //other the user is not logged in
-            } else {
-              //and we shouldn't show the form or logout link
-              if (link.route === "/form" || link.route === "/logout") {
-                return null;
+            //if localstorage exists
+            if (typeof window !== "undefined") {
+              //if the user is logged in
+              if (localStorage.getItem("user")) {
+                //dont show the login and signup route
+                if (link.route === "/login" || link.route === "/signup") {
+                  return null;
+                }
+                //other the user is not logged in
+              } else {
+                //and we shouldn't show the form or logout link
+                if (link.route === "/form" || link.route === "/logout") {
+                  return null;
+                }
               }
             }
             //custome a link for logout func
