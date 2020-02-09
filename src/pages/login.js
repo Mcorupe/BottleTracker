@@ -3,28 +3,31 @@ import { withFirebase } from "../components/withFirebase";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
-import Form from "../components/Form";
-import { firestore } from "firebase";
 import { navigate } from "gatsby";
 
-const loginPage = props => {
-  console.log(props);
+const LoginPage = props => {
+  const { firebase, location } = props;
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [authError, setAuthError] = useState("");
 
-  const login = () => {
-    props.firebase
+  const login = () =>
+    //use user credentials to sign in
+    firebase
       .auth()
       .signInWithEmailAndPassword(email, password)
-      .then(() => {
-        console.log("USER HAS LOGGED INT");
+      .then(user => {
+        //store the user in localstorage
+        localStorage.setItem("user", JSON.stringify(user));
+        //log the user
+        console.log("login form", user);
+        //redirect to form page
         return navigate("/form");
       })
+      //catch the error and display it just in case
       .catch(err => setAuthError(err.message));
-  };
   return (
-    <Layout>
+    <Layout location={location}>
       <SEO
         keywords={["gatsby", "tailwind", "react", "tailwindcss", "Login"]}
         title="Login"
@@ -90,4 +93,4 @@ const loginPage = props => {
   );
 };
 
-export default withFirebase(loginPage);
+export default withFirebase(LoginPage);

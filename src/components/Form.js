@@ -2,19 +2,20 @@ import React, { useState } from "react";
 import { withFirebase } from "../components/withFirebase";
 
 export function Form(props) {
-  const sendData = feeding => {props.firebase && 
-    props.firebase
-      .firestore()
-      .collection("feeding")
-      .add({
-        ...feeding,
-        userId: props.firebase.auth().currentUser.uid,
-        //no user is logged in currently, will have to add this later
-        // authorFirstName: firstName,
-        // authorLastName: lastName,
-        // authorId: authorId,
-        createdAt: new Date()
-      });
+  const sendData = feeding => {
+    props.firebase &&
+      props.firebase
+        .firestore()
+        .collection("feeding")
+        .add({
+          ...feeding,
+          userId: props.firebase.auth().currentUser.uid,
+          //no user is logged in currently, will have to add this later
+          // authorFirstName: firstName,
+          // authorLastName: lastName,
+          // authorId: authorId,
+          createdAt: new Date()
+        });
   };
   //hooks to update form values and set in "state"
   const [name, setName] = useState("");
@@ -38,7 +39,7 @@ export function Form(props) {
     <form
       className="flex flex-wrap content-center md:flex-no-wrap bg-blue-400 rounded-lg p-8 mx-auto"
       onSubmit={submitForm}
-      data-testid='form'
+      data-testid="form"
     >
       <div className="flex flex-row items-center w-full p-4 sm:px-2">
         <label className="font-bold mb-1 md:mb-0 pr-2">Name:</label>
@@ -72,7 +73,6 @@ export function Form(props) {
           onChange={e => setAmount(e.target.value)}
           value={amount}
           data-testid="selector-amount"
-
         >
           <option value=""></option>
           <option value="0">0</option>

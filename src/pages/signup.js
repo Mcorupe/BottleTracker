@@ -4,12 +4,13 @@ import { navigate } from "gatsby";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
-import Form from "../components/Form";
-import { firestore } from "firebase";
+// import Form from "../components/Form";
+// import { firestore } from "firebase";
 // import { useSignUpForm } from "../components/formHooks";
 
 function SignUpPage(props) {
-  const [loading, setLoading] = useState(false);
+  const { firebase, location } = props;
+  // const [loading, setLoading] = useState(false);
   const [userName, setUserName] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -19,7 +20,7 @@ function SignUpPage(props) {
 
   //{user: username, password: password}
   const setUser = signUpData =>
-    props.firebase
+    firebase
       .auth()
       .createUserWithEmailAndPassword(signUpData.email, signUpData.password)
       .then(resp => {
@@ -45,7 +46,7 @@ function SignUpPage(props) {
     return navigate("/login");
   };
   return (
-    <Layout>
+    <Layout location={location}>
       <SEO
         keywords={["gatsby", "tailwind", "react", "tailwindcss", "SignUp"]}
         title="SignUp"

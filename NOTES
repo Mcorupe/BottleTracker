@@ -30,6 +30,7 @@ conditionally render these
 [] add some svgs
 [] center <btn> SignUP </btn>
 [] center <btn> Login </btn>
+[] make universal spinner component
 
 --- TESTS ----
 [] signUP

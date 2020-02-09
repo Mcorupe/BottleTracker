@@ -8,6 +8,7 @@ module.exports = {
   },
   plugins: [
     "gatsby-plugin-react-helmet",
+    "gatsby-plugin-postcss",
     {
       resolve: "gatsby-plugin-manifest",
       options: {
@@ -20,7 +21,6 @@ module.exports = {
         icon: "src/images/tailwind-icon.png"
       }
     },
-    "gatsby-plugin-postcss",
     {
       resolve: "gatsby-plugin-purgecss",
       options: {
@@ -31,11 +31,11 @@ module.exports = {
     {
       resolve: "gatsby-plugin-use-dark-mode",
       options: {
-         classNameDark: "dark-mode",
-         classNameLight: "light-mode",
-         storageKey: "darkMode",
-         minify: true,
-      },
+        classNameDark: "dark-mode",
+        classNameLight: "light-mode",
+        storageKey: "darkMode",
+        minify: true
+      }
     },
     {
       resolve: "gatsby-plugin-firebase",
