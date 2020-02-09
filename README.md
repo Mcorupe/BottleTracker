@@ -23,7 +23,6 @@ All data is tracked in Firebase and displayed and filtered for the user. This wa
 ### Software used
 
 - VS Code
-- iTerm
 - NodeJS
 
 ### Steps to setup environment
