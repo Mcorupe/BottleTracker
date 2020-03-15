@@ -8,7 +8,6 @@ module.exports = {
   },
   plugins: [
     "gatsby-plugin-react-helmet",
-    "gatsby-plugin-postcss",
     {
       resolve: "gatsby-plugin-manifest",
       options: {
@@ -21,13 +20,17 @@ module.exports = {
         icon: "src/images/tailwind-icon.png"
       }
     },
+    "gatsby-plugin-postcss",
     {
-      resolve: "gatsby-plugin-purgecss",
+      resolve: "gatsby-plugin-sass",
       options: {
-        tailwind: true,
-        purgeOnly: ["src/css/style.css"]
+        // Configure SASS to process Tailwind
+        postCssPlugins: [require('tailwindcss')],
+        // tailwind: true,
+        // purgeOnly: ["src/css/style.scss"]
       }
     },
+    // 'gatsby-plugin-sass',
     {
       resolve: "gatsby-plugin-use-dark-mode",
       options: {
@@ -51,6 +54,6 @@ module.exports = {
         }
       }
     },
-    "gatsby-plugin-offline"
+    "gatsby-plugin-offline",
   ]
 };

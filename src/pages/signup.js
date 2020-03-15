@@ -32,7 +32,7 @@ function SignUpPage(props) {
             firstName: signUpData.firstName,
             lastName: signUpData.lastName,
             userName: signUpData.userName,
-            initials: signUpData.firstName[0] + signUpData.lastName[0],
+            initials: signUpData.firstName[0].toUpperCase() + signUpData.lastName[0].toUpperCase(),
             createdAt: new Date()
           });
       })

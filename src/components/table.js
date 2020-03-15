@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import moment from "moment";
 
-import "../css/style.css";
+import "../css/style.scss";
 import { navigate } from "gatsby";
 
 function Table(props) {
@@ -81,6 +81,7 @@ function Table(props) {
     //return nothing as we fetch after every update
     return () => {};
   }, []); //not sure what i'm supposed to pass into this array
+
   return (
     <div>
       {!loading ? (

@@ -1,5 +1,6 @@
 import { graphql, useStaticQuery, Link, navigate } from "gatsby";
 import React, { useState } from "react";
+import DarkModeToggle from "./DarkModeToggle";
 
 const Header = props => {
   const { firebase, location } = props;
@@ -94,6 +95,7 @@ const Header = props => {
                 </a>
               );
             }
+
             //return a gatsby link otherwise.
             return (
               <Link
@@ -105,6 +107,7 @@ const Header = props => {
               </Link>
             );
           })}
+          <DarkModeToggle />
         </nav>
       </div>
     </header>

@@ -3,20 +3,18 @@ import PropTypes from "prop-types";
 import { withFirebase } from "../components/withFirebase";
 import { FirebaseContext } from "gatsby-plugin-firebase";
 import useDarkMode from "use-dark-mode";
-
-import "../css/style.css";
+import "../css/style.scss";
 import Header from "./header";
+
 
 function Layout(props) {
   const { children, firebase, location } = props;
   const Firebase = React.useContext(FirebaseContext);
-  const darkMode = useDarkMode(false);
-  const handleTheme = theme =>
-    theme === "dark" ? darkMode.enable() : darkMode.disable();
+
   return (
     <FirebaseContext.Provider firebase={Firebase}>
-      <div className="flex flex-col font-sans min-h-screen bg-pink-300 text-gray-900">
-        <Header firebase={firebase} location={location} />
+      <div className="flex flex-col font-sans min-h-screen text-gray-900">
+        <Header firebase={firebase} location={location} className="background" />
         <main
           className={
             "flex flex-col flex-1 md:justify-center max-w-4xl mx-auto px-4 py-8 md:p-8 w-full"
@@ -24,13 +22,6 @@ function Layout(props) {
         >
           {children}
           <br />
-          <button
-            className="rounded-full p-2 mx-64 bg-teal-700 text-white hover:bg-teal-600 "
-            type={"button"}
-            onClick={handleTheme}
-          >
-            Theme
-          </button>
         </main>
         <footer className="bg-teal-700">
           <nav className="flex justify-between max-w-4xl mx-auto p-4 md:p-8 text-sm">

@@ -5,7 +5,7 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Form from "../components/Form";
 import Table from "../components/table";
-import "../css/style.css";
+import "../css/style.scss";
 
 //class component because table was being a bitch when it came to firebase
 class FormPage extends React.Component {

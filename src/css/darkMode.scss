@@ -1,0 +1,15 @@
+body.dark-mode {
+  @extend .bg-pink-400;
+  // background-color: #10171d;
+  // color: #dfdfdf;
+  .header {
+    background-color: #1b2938;
+  }
+
+  .dark-mode-toggle > button {
+    color: #999;
+    &:last-child {
+      color: lightblue;
+    }
+  }
+}
