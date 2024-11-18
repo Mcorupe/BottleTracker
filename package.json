@@ -4,7 +4,7 @@
   "version": "3.0.141",
   "author": "Taylor Bryant <taylor@bryant.io>",
   "dependencies": {
-    "firebase": "7.5.0",
+    "firebase": "10.9.0",
     "gatsby": "^2.19.43",
     "gatsby-plugin-firebase": "^0.1.8",
     "gatsby-plugin-sass": "^2.1.30",
