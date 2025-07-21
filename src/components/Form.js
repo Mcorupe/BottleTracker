@@ -1,15 +1,16 @@
 import React, { useState } from "react";
+import firebase from "gatsby-plugin-firebase"
 // import { withFirebase } from "../components/withFirebase";
 
-export function Form(props) {
+export function Form() {
   const sendData = feeding => {
-    props.firebase &&
-      props.firebase
+    firebase &&
+      firebase
         .firestore()
         .collection("feeding")
         .add({
           ...feeding,
-          userId: props.firebase.auth().currentUser.uid,
+          userId: firebase.auth().currentUser.uid,
           //no user is logged in currently, will have to add this later
           // authorFirstName: firstName,
           // authorLastName: lastName,

@@ -1,6 +1,6 @@
 import { navigate } from "gatsby";
 import React, { useState } from "react";
-import { withFirebase } from "../components/withFirebase";
+import firebase from "gatsby-plugin-firebase"
 // import { withFirebase } from "../components/withFirebase";
 
 import Seo from "../components/seo";
@@ -10,7 +10,7 @@ import Layout from "../components/layout";
 // import { useSignUpForm } from "../components/formHooks";
 
 function SignUpPage(props) {
-  const { firebase, location } = props;
+  const { location } = props;
   // const [loading, setLoading] = useState(false);
   const [userName, setUserName] = useState("");
   const [firstName, setFirstName] = useState("");
@@ -26,7 +26,7 @@ function SignUpPage(props) {
       .createUserWithEmailAndPassword(signUpData.email, signUpData.password)
       .then(resp => {
         console.log(resp);
-        return props.firebase
+        return firebase
           .firestore()
           .collection("users")
           .add({

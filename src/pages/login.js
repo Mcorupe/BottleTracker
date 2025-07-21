@@ -1,11 +1,13 @@
+import { navigate } from "gatsby";
 import React, { useState } from "react";
+import firebase from "gatsby-plugin-firebase"
 // import { withFirebase } from "../components/withFirebase";
 
 import Seo from "../components/seo";
 import Layout from "../components/layout";
 
 const LoginPage = props => {
-  const { firebase, location } = props;
+  const { location } = props;
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [authError, setAuthError] = useState("");

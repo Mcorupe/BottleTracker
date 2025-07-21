@@ -1,4 +1,5 @@
 import React from "react";
+import firebase from "gatsby-plugin-firebase"
 // import { withFirebase } from "../components/withFirebase";
 
 import Layout from "../components/layout";
@@ -23,37 +24,33 @@ class IndexPage extends React.Component {
     ) {
       navigate("/form");
     }
-    if (
-      this.state.loading &&
-      this.props.firebase &&
-      !localStorage.getItem("key")
-    ) {
+    if (this.state.loading && firebase && !localStorage.getItem("key")) {
       this.isUserLoggedIn();
     }
   }
   isUserLoggedIn = () => {
-    const { firebase } = this.props;
-    //check for firebase
-    firebase &&
-      //if firebase exists, check if auth has been changed
-      firebase.auth().onAuthStateChanged(user => {
-        //if a user was returned
-        if (user) {
-          //store the user in localstorage
-          localStorage.setItem("user", JSON.stringify(user));
-          //stop loading
-          this.setState({ loading: false });
-          //redirect to the form page
-          return navigate("/form");
-        } else {
-          // No user is signed in so back to the login page
-          return navigate("/login");
-        }
-      });
+    // const { firebase } = this.props;
+    console.log('index.isUserLoggedIn', firebase.auth())
+    //if firebase exists, check if auth has been changed
+    firebase.auth().onAuthStateChanged(user => {
+      //if a user was returned
+      if (user) {
+        //store the user in localstorage
+        localStorage.setItem("user", JSON.stringify(user));
+        //stop loading
+        this.setState({ loading: false });
+        //redirect to the form page
+        return navigate("/form");
+      } else {
+        // No user is signed in so back to the login page
+        return navigate("/login");
+      }
+    });
   };
   render() {
     const { location } = this.props;
     const { loading } = this.state;
+    console.log('index.render', firebase)
     return (
       <Layout location={location}>
         <Seo

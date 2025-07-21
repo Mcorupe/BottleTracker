@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
 import moment from "moment";
+import firebase from "gatsby-plugin-firebase"
+import React, { useState, useEffect } from "react";
 
 import "../css/style.scss";
 import { navigate } from "gatsby";
 
-function Table(props) {
-  const { firebase } = props;
+function Table() {
   const [loading, setLoading] = useState(true);
   const [feedings, setFeedings] = useState([]);
   // const [userUid, setUserUid] = useState("");

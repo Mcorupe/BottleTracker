@@ -1,9 +1,10 @@
-import { graphql, useStaticQuery, Link, navigate } from "gatsby";
 import React, { useState } from "react";
+import firebase from "gatsby-plugin-firebase"
 import DarkModeToggle from "./DarkModeToggle";
+import { graphql, useStaticQuery, Link, navigate } from "gatsby";
 
 const Header = props => {
-  const { firebase, location } = props;
+  const { location } = props;
   const [isExpanded, toggleExpansion] = useState(false);
   //logout func
   const logOut = () =>
