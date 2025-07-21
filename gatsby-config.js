@@ -3,10 +3,12 @@ require("dotenv").config({ path: ".env" });
 module.exports = {
   siteMetadata: {
     title: "BottleTracker",
-    description: "Bottle Tracker for babies or animals",
-    author: "@Mark&Kevin"
+    description: "BottleTracker 🍼 is for anyone that needs to track feedings of infant humans 👶 or animals 😺.",
+    author: "@Mcorupe"
   },
   plugins: [
+    "gatsby-plugin-offline",
+    "gatsby-plugin-postcss",
     "gatsby-plugin-react-helmet",
     {
       resolve: "gatsby-plugin-manifest",
@@ -20,7 +22,6 @@ module.exports = {
         icon: "src/images/tailwind-icon.png"
       }
     },
-    "gatsby-plugin-postcss",
     {
       resolve: "gatsby-plugin-sass",
       options: {
@@ -30,7 +31,6 @@ module.exports = {
         // purgeOnly: ["src/css/style.scss"]
       }
     },
-    // 'gatsby-plugin-sass',
     {
       resolve: "gatsby-plugin-use-dark-mode",
       options: {
@@ -53,7 +53,6 @@ module.exports = {
           performance: true
         }
       }
-    },
-    "gatsby-plugin-offline",
+    }
   ]
 };
