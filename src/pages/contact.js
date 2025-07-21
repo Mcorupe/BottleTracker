@@ -1,13 +1,13 @@
 import React from "react";
 
+import Seo from "../components/seo";
 import Layout from "../components/layout";
-import SEO from "../components/seo";
 
 function ContactPage(props) {
   const { location } = props;
   return (
     <Layout location={location}>
-      <SEO
+      <Seo
         keywords={["gatsby", "tailwind", "react", "tailwindcss"]}
         title="Contact"
       />

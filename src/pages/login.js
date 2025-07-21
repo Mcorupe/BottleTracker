@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { withFirebase } from "../components/withFirebase";
 
+import Seo from "../components/seo";
 import Layout from "../components/layout";
-import SEO from "../components/seo";
-import { navigate } from "gatsby";
 
 const LoginPage = props => {
   const { firebase, location } = props;
@@ -28,7 +27,7 @@ const LoginPage = props => {
       .catch(err => setAuthError(err.message));
   return (
     <Layout location={location}>
-      <SEO
+      <Seo
         keywords={["gatsby", "tailwind", "react", "tailwindcss", "Login"]}
         title="Login"
       />

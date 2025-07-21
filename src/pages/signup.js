@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { withFirebase } from "../components/withFirebase";
 import { navigate } from "gatsby";
 
+import Seo from "../components/seo";
 import Layout from "../components/layout";
-import SEO from "../components/seo";
 // import Form from "../components/Form";
 // import { firestore } from "firebase";
 // import { useSignUpForm } from "../components/formHooks";
@@ -47,7 +47,7 @@ function SignUpPage(props) {
   };
   return (
     <Layout location={location}>
-      <SEO
+      <Seo
         keywords={["gatsby", "tailwind", "react", "tailwindcss", "SignUp"]}
         title="SignUp"
       />

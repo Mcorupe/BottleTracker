@@ -1,14 +1,14 @@
 import React from "react";
 import { withFirebase } from "../components/withFirebase";
 
+import Seo from "../components/seo";
 import Layout from "../components/layout";
-import SEO from "../components/seo";
 import abductionIllustration from "../images/abduction-illustration.svg";
 
 function NotFoundPage() {
   return (
     <Layout>
-      <SEO title="404: Not found" />
+      <Seo title="404: Not found" />
       <div>
         <img
           alt="Ghost getting abducted by aliens"

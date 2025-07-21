@@ -2,7 +2,7 @@ import React from "react";
 import { withFirebase } from "../components/withFirebase";
 
 import Layout from "../components/layout";
-import SEO from "../components/seo";
+import Seo from "../components/seo";
 import { navigate } from "gatsby";
 
 class IndexPage extends React.Component {
@@ -56,7 +56,7 @@ class IndexPage extends React.Component {
     const { loading } = this.state;
     return (
       <Layout location={location}>
-        <SEO
+        <Seo
           keywords={[
             "gatsby",
             "tailwind",

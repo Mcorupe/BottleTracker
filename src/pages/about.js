@@ -1,14 +1,14 @@
 import React from "react";
 
+import Seo from "../components/seo";
 import Layout from "../components/layout";
-import SEO from "../components/seo";
 import dogIllustration from "../images/dog-illustration.svg";
 
 function AboutPage(props) {
   const { location } = props;
   return (
     <Layout location={location}>
-      <SEO
+      <Seo
         keywords={["gatsby", "tailwind", "react", "tailwindcss"]}
         title="About"
       />
