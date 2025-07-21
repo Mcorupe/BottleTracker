@@ -1,5 +1,6 @@
 import React from "react";
-import { withFirebase } from "../components/withFirebase";
+// import firebase from "gatsby-plugin-firebase"
+// import { withFirebase } from "../components/withFirebase";
 
 import Seo from "../components/seo";
 import Layout from "../components/layout";
@@ -23,4 +24,5 @@ function NotFoundPage() {
   );
 }
 
-export default withFirebase(NotFoundPage);
+export default NotFoundPage;
+// export default withFirebase(NotFoundPage);

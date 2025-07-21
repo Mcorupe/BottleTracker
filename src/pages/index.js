@@ -1,5 +1,5 @@
 import React from "react";
-import { withFirebase } from "../components/withFirebase";
+// import { withFirebase } from "../components/withFirebase";
 
 import Layout from "../components/layout";
 import Seo from "../components/seo";
@@ -79,4 +79,5 @@ class IndexPage extends React.Component {
   }
 }
 
-export default withFirebase(IndexPage);
+export default IndexPage;
+// export default withFirebase(IndexPage);

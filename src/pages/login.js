@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { withFirebase } from "../components/withFirebase";
+// import { withFirebase } from "../components/withFirebase";
 
 import Seo from "../components/seo";
 import Layout from "../components/layout";
@@ -92,4 +92,5 @@ const LoginPage = props => {
   );
 };
 
-export default withFirebase(LoginPage);
+export default LoginPage;
+// export default withFirebase(LoginPage);

@@ -1,6 +1,7 @@
+import { navigate } from "gatsby";
 import React, { useState } from "react";
 import { withFirebase } from "../components/withFirebase";
-import { navigate } from "gatsby";
+// import { withFirebase } from "../components/withFirebase";
 
 import Seo from "../components/seo";
 import Layout from "../components/layout";
@@ -159,4 +160,5 @@ function SignUpPage(props) {
   );
 }
 
-export default withFirebase(SignUpPage);
+export default SignUpPage;
+// export default withFirebase(SignUpPage);

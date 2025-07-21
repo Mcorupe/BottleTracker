@@ -1,5 +1,5 @@
 import React from "react";
-import { withFirebase } from "../components/withFirebase";
+// import { withFirebase } from "../components/withFirebase";
 
 import Seo from "../components/seo";
 import Form from "../components/Form";
@@ -9,7 +9,7 @@ import "../css/style.scss";
 //class component because table was being a bitch when it came to firebase
 class FormPage extends React.Component {
   render() {
-    const { firebase, location } = this.props;
+    const { location } = this.props;
     return (
       <Layout location={location}>
         <Seo
@@ -18,10 +18,11 @@ class FormPage extends React.Component {
         />
         <Form />
         <br />
-        {firebase && <Table firebase={firebase} />}
+        <Table />
       </Layout>
     );
   }
 }
 
-export default withFirebase(FormPage);
+export default FormPage;
+// export default withFirebase(FormPage);

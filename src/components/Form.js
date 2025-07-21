@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { withFirebase } from "../components/withFirebase";
+// import { withFirebase } from "../components/withFirebase";
 
 export function Form(props) {
   const sendData = feeding => {
@@ -98,4 +98,6 @@ export function Form(props) {
     </form>
   );
 }
-export default withFirebase(Form);
+
+export default Form;
+// export default withFirebase(Form);
