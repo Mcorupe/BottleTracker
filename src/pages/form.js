@@ -4,6 +4,8 @@ import React from "react";
 import Seo from "../components/seo";
 import Form from "../components/Form";
 import Table from "../components/table";
+import Layout from "../components/layout";
+
 import "../css/style.scss";
 
 //class component because table was being a bitch when it came to firebase
