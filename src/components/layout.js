@@ -1,20 +1,17 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { withFirebase } from "../components/withFirebase";
-import { FirebaseContext } from "gatsby-plugin-firebase";
 import useDarkMode from "use-dark-mode";
-import "../css/style.scss";
+
 import Header from "./header";
 
+import "../css/style.scss";
 
 function Layout(props) {
-  const { children, firebase, location } = props;
-  const Firebase = React.useContext(FirebaseContext);
+  const { children, location } = props;
 
   return (
-    <FirebaseContext.Provider firebase={Firebase}>
       <div className="flex flex-col font-sans min-h-screen text-gray-900">
-        <Header firebase={firebase} location={location} className="background" />
+        <Header location={location} className="background" />
         <main
           className={
             "flex flex-col flex-1 md:justify-center max-w-4xl mx-auto px-4 py-8 md:p-8 w-full"
@@ -47,7 +44,6 @@ function Layout(props) {
           </nav>
         </footer>
       </div>
-    </FirebaseContext.Provider>
   );
 }
 
@@ -55,4 +51,5 @@ Layout.propTypes = {
   children: PropTypes.node.isRequired
 };
 
-export default withFirebase(Layout);
+export default Layout;
+// export default withFirebase(Layout);
