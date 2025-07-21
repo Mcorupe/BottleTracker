@@ -17,3 +17,6 @@ yarn.lock
 
 # deployment-specific configs
 now.json
+
+# secret values
+/*.env
