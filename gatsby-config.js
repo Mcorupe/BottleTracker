@@ -1,4 +1,5 @@
 require("dotenv").config({ path: ".env" });
+const autoprefixer = require('autoprefixer');
 
 module.exports = {
   siteMetadata: {
@@ -8,8 +9,15 @@ module.exports = {
   },
   plugins: [
     "gatsby-plugin-offline",
-    "gatsby-plugin-postcss",
     "gatsby-plugin-react-helmet",
+    {
+      resolve: `gatsby-plugin-postcss`,
+      options: {
+        postCssPlugins: [
+          autoprefixer(),
+        ],
+      },
+    },
     {
       resolve: "gatsby-plugin-manifest",
       options: {
@@ -26,7 +34,7 @@ module.exports = {
       resolve: "gatsby-plugin-sass",
       options: {
         // Configure SASS to process Tailwind
-        postCssPlugins: [require('tailwindcss')],
+        postCssPlugins: [require("@tailwindcss/postcss")],
         // tailwind: true,
         // purgeOnly: ["src/css/style.scss"]
       }
