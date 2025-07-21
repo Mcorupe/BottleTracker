@@ -32,7 +32,7 @@
     "start": "npm run develop",
     "start:cache": "npm run clear:cache && npm start",
     "build": "gatsby build",
-    "develop": "gatsby develop",
+    "develop": "gatsby develop -p 3000",
     "serve": "gatsby serve",
     "analyze": "npm run analyze:lint && npm run analyze:prettier",
     "fix": "npm run fix:lint && npm run fix:prettier",
