@@ -27,11 +27,26 @@ All data is tracked in Firebase and displayed and filtered for the user. This wa
 
 ### Steps to setup environment
 
+
 ```
 git clone https://github.com/Mcorupe/BottleTracker.git
 npm install
 npm start
 ```
+
+- A Google Cloud account with a firebase project setup
+- Create .env
+    - Add the following variables from your firebase project:
+        ```
+        GATSBY_FIREBASE_API_KEY=XXXXXXXXXXX_XXXXXXXXXXXXXXXXXXXXXXXXXXX
+        GATSBY_FIREBASE_AUTH_DOMAIN=example-app.firebaseapp.com
+        GATSBY_FIREBASE_DATABASE_URL=https://example-app.firebaseio.com
+        GATSBY_FIREBASE_PROJECT_ID=example-app
+        GATSBY_FIREBASE_STORAGE_BUCKET=example-app.firebasestorage.app
+        GATSBY_FIREBASE_MESSAGING_SENDER_ID=XXXXXXXXXXXX
+        GATSBY_FIREBASE_APP_ID=1:XXXXXXXXXXXX:web:XXXXXXXXXXXXXXXXXXXXXX
+        GATSBY_FIREBASE_MEASUREMENT_ID=G-XXXXXXXXXX
+        ```
 
 ## Available Scripts
 
